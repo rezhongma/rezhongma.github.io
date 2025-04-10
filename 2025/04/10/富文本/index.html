@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>在vue2使用TinyMCE富文本编辑器简介 | 热衷嗎</title><meta name="author" content="殊荣"><meta name="copyright" content="殊荣"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="TinyMCE是一个功能齐全，时尚和直观的富文本编辑器，免费版的插件已能满足大部分业务场景的需要。 前言TinyMCE官方提供了在vue中使用TinyMCE的包：@tinymce&#x2F;tinymce-vue，但是不太好用，编辑器资源是通过CDN引入的，加载慢且需要网络连接，且vue2版本对应的TinyMCE版本过低。 因此需要手动封装一个供vue2使用的编辑器。 安装首先下载最新版本的TinyMCE（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在vue2使用TinyMCE富文本编辑器简介">
+<meta property="og:url" content="http://example.com/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/index.html">
+<meta property="og:site_name" content="热衷嗎">
+<meta property="og:description" content="TinyMCE是一个功能齐全，时尚和直观的富文本编辑器，免费版的插件已能满足大部分业务场景的需要。 前言TinyMCE官方提供了在vue中使用TinyMCE的包：@tinymce&#x2F;tinymce-vue，但是不太好用，编辑器资源是通过CDN引入的，加载慢且需要网络连接，且vue2版本对应的TinyMCE版本过低。 因此需要手动封装一个供vue2使用的编辑器。 安装首先下载最新版本的TinyMCE（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg">
+<meta property="article:published_time" content="2025-04-10T07:01:42.950Z">
+<meta property="article:modified_time" content="2025-04-10T07:04:00.000Z">
+<meta property="article:author" content="殊荣">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '在vue2使用TinyMCE富文本编辑器简介',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-10 15:04:00'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="热衷嗎"><span class="site-name">热衷嗎</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">在vue2使用TinyMCE富文本编辑器简介</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-10T07:01:42.950Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-10T07:04:00.000Z" title="更新于 2025-04-10 15:04:00">2025-04-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="在vue2使用TinyMCE富文本编辑器简介"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>TinyMCE是一个功能齐全，时尚和直观的富文本编辑器，免费版的插件已能满足大部分业务场景的需要。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>TinyMCE官方提供了在vue中使用TinyMCE的包：<code>@tinymce/tinymce-vue</code>，但是不太好用，编辑器资源是通过CDN引入的，加载慢且需要网络连接，且vue2版本对应的TinyMCE版本过低。</p>
+<p>因此需要手动封装一个供vue2使用的编辑器。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先下载最新版本的TinyMCE（我使用的是v7.0.0）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install tinymce</span><br></pre></td></tr></table></figure>
+
+<h2 id="拷贝-content-样式到-public-目录"><a href="#拷贝-content-样式到-public-目录" class="headerlink" title="拷贝 content 样式到 public 目录"></a>拷贝 content 样式到 public 目录</h2><p>只需要拷贝一个 content.css 文件，无需拷贝整个tinymce目录，避免增大git仓库的体积。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">node_modules/tinymce/skins/ui/oxide/content.css</span><br><span class="line"></span><br><span class="line">public/</span><br><span class="line">-- tinymce/</span><br><span class="line">---- skins/</span><br><span class="line">------ ui/</span><br><span class="line">-------- oxide/</span><br><span class="line">---------- content.css</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载中文翻译文件"><a href="#下载中文翻译文件" class="headerlink" title="下载中文翻译文件"></a>下载中文翻译文件</h2><p>先到官网下载中文翻译文件备用：</p>
+<p><a href="https://link.zhihu.com/?target=https://www.tiny.cloud/get-tiny/language-packages/">Language Packages | Trusted Rich Text Editor | TinyMCEwww.tiny.cloud/get-tiny/language-packages/<img src="https://pic4.zhimg.com/v2-1b96aa60dbf829bc52323c3045ce054d_180x120.jpg" alt="img"></a></p>
+<p><img src="https://pica.zhimg.com/v2-fcadcfadc79e2d614477df4958df3fdc_1440w.jpg" alt="img"></p>
+<p>下载后解压到<code>/public</code>目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public/</span><br><span class="line">-- tinymce/</span><br><span class="line">---- langs/</span><br><span class="line">------ zh_CN.js</span><br><span class="line">---- skins/</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建组件文件"><a href="#创建组件文件" class="headerlink" title="创建组件文件"></a>创建组件文件</h2><p>在 components 目录创建公用编辑器组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/src/components/TinyEditor/index.vue </span><br></pre></td></tr></table></figure>
+
+<h2 id="编写组件"><a href="#编写组件" class="headerlink" title="编写组件"></a>编写组件</h2><h3 id="导入tinymce依赖"><a href="#导入tinymce依赖" class="headerlink" title="导入tinymce依赖"></a>导入tinymce依赖</h3><p>导入tinymce核心文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import tinymce from &#x27;tinymce/tinymce&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>导入tinymce样式文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#x27;tinymce/skins/ui/oxide/skin&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>导入tinymce主题文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#x27;tinymce/themes/silver/theme&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>导入tinymce图标文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#x27;tinymce/icons/default/icons&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>导入tinymce核心模型文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#x27;tinymce/models/dom/model&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>导入tinymce插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#x27;tinymce/plugins/advlist&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/autolink&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/autosave&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/code&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/directionality&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/fullscreen&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/insertdatetime&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/link&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/anchor&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/lists&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/media&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/nonbreaking&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/pagebreak&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/preview&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/searchreplace&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/table&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/visualblocks&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/visualchars&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/wordcount&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/image&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="放置textarea元素用来初始化tinymce"><a href="#放置textarea元素用来初始化tinymce" class="headerlink" title="放置textarea元素用来初始化tinymce"></a>放置textarea元素用来初始化tinymce</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;textarea ref=&quot;textarea&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="组件挂载时初始化tinymce"><a href="#组件挂载时初始化tinymce" class="headerlink" title="组件挂载时初始化tinymce"></a>组件挂载时初始化tinymce</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tinymce.init(&#123;</span><br><span class="line">  target: this.$refs.textarea</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h3><p>在init方法参数配置对象中进行自定义配置。</p>
+<p>配置引入到编辑器<code>iframe</code>的样式文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 引入上面拷贝到public目录的content.css文件</span><br><span class="line">&#123;</span><br><span class="line">  content_css: &#x27;/tinymce/skins/ui/oxide/content.css&#x27;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置中文：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 引入上面下载解压到public目录的翻译文件</span><br><span class="line">&#123;</span><br><span class="line">  language_url: &#x27;/tinymce/langs/zh_CN.js&#x27;,</span><br><span class="line">  language: &#x27;zh_CN&#x27;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置要使用的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  plugins: &#x27;lists link anchor code wordcount image table visualchars visualblocks searchreplace preview pagebreak nonbreaking media insertdatetime fullscreen directionality autosave autolink advlist&#x27;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置工具栏：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  toolbar: [</span><br><span class="line">    &#x27;undo redo removeformat | bold italic underline strikethrough superscript subscript backcolor forecolor | numlist bullist | blocks | searchreplace fullscreen&#x27;,</span><br><span class="line">    &#x27;fontfamily fontsize fontsizeselect fontsizeinput | alignleft aligncenter alignright alignjustify lineheight outdent indent | link unlink image media | preview code&#x27;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置可选字号和单位：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 默认单位是pt，现改为px</span><br><span class="line">&#123;</span><br><span class="line">  font_size_formats: &#x27;9px 10px 11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 36px 42px 48px 72px&#x27;,</span><br><span class="line">  // 配置工具栏时添加的 fontsizeinput 工具可以展示一个可输入字号的组件，默认单位是pt，现改为px</span><br><span class="line">  font_size_input_default_unit: &#x27;px&#x27;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置图片上传：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 默认情况下，当粘贴图片到编辑器，或通过编辑器工具栏的“图片”工具选择一个图片时，会以base64的方式保存到编辑器，</span><br><span class="line">// 如果图片很大，会导致当前编辑的文档体积增大，会增加服务器的压力，且降低传输速度，</span><br><span class="line">// 因此一般会将图片上传到专门的图片服务器，而将返回的url保存到当前编辑的文件中，大大降低带宽和服务器压力。</span><br><span class="line">&#123;</span><br><span class="line">  // 通过 images_upload_handler 配置自定义上传，下面代码演示接口的使用，实际代码在文末：</span><br><span class="line">  images_upload_handler: (blobInfo, progress) =&gt; &#123;</span><br><span class="line">    return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">      const file = blobInfo(); // 要发送到服务器的文件</span><br><span class="line">      progress(50); // 上传进度改变时调用这个函数，以便显示给用户。</span><br><span class="line">      resolve(&#x27;上传成功后返回的链接&#x27;);</span><br><span class="line">      reject(new Error(&#x27;上传失败&#x27;))</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置编辑器的高度：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  height: 500,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>隐藏更新按钮：</p>
+<p><img src="https://pic4.zhimg.com/v2-e3704bb91b71c7b195e36c9feebc8caf_1440w.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  promotion: false,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h3><p>获取编辑器实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tinymce.init(&#123;&#125;).then(([editor]) =&gt; &#123;</span><br><span class="line">  this.editor = editor</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>监听编辑器内容变化，并发送到父组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// &#x27;change keyup undo redo&#x27;四个事件应该能覆盖编辑器内容变化的所有情况了</span><br><span class="line">// editor.getContent()方法可以获取编辑器内容</span><br><span class="line">editor.on(&#x27;change keyup undo redo&#x27;, () =&gt; &#123;</span><br><span class="line">  this.$emit(&#x27;input&#x27;, editor.getContent());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>监听组件外部值的变换，并更新编辑器内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  watch: &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">      handler() &#123;</span><br><span class="line">        // editor.setContent()方法可以设置编辑器的内容</span><br><span class="line">        this.editor?.setContent(this.value);</span><br><span class="line">      &#125;,</span><br><span class="line">      immediate: true,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="层级问题"><a href="#层级问题" class="headerlink" title="层级问题"></a>层级问题</h3><p>如果在element-ui等组件库的弹窗使用TinyMCE编辑器时，可能TinyMCE提示框或下拉菜单等的层级比弹窗组件层级低而不会显示。因此需要提高TinyMCE下拉菜单的层级：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.tox-tinymce-aux &#123;</span><br><span class="line">  z-index: 10000 !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="隐藏字号输入框"><a href="#隐藏字号输入框" class="headerlink" title="隐藏字号输入框"></a>隐藏字号输入框</h3><p>上面工具栏配置已经添加<code>fontsize</code>让用户选择预设的字号，同时添加<code>fontsizeinput</code>让用户可以手动输入及其通过增减按钮改变字号。</p>
+<p>但我觉得在 <code>fontsize</code> 基础上增加两个按钮控制字号就可以，无需添加输入框，避免看起来重复冗余，因此通过css让输入框隐藏：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.tox .tox-number-input .tox-input-wrapper &#123;</span><br><span class="line">  display: none !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以仅使用<code>fontsizeinput</code>，但预设值可以让用户更快选择字号。</p>
+<h3 id="TinyMCE品牌logo"><a href="#TinyMCE品牌logo" class="headerlink" title="TinyMCE品牌logo"></a>TinyMCE品牌logo</h3><p>在编辑器右下角有一个TinyMCE的品牌logo。记住，千万不要添加以下代码隐藏这个logo！饮水要思源呀！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.tox-statusbar__branding &#123;</span><br><span class="line">  display: none !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在组件销毁时，销毁编辑器实例"><a href="#在组件销毁时，销毁编辑器实例" class="headerlink" title="在组件销毁时，销毁编辑器实例"></a>在组件销毁时，销毁编辑器实例</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  beforeDestroy() &#123;</span><br><span class="line">    this.editor?.destroy();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="完整组件代码"><a href="#完整组件代码" class="headerlink" title="完整组件代码"></a>完整组件代码</h2><p>下面上传图片的代码需要根据你公司的接口进行修改：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;textarea ref=&quot;textarea&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import tinymce from &#x27;tinymce/tinymce&#x27;;</span><br><span class="line">import &#x27;tinymce/skins/ui/oxide/skin&#x27;;</span><br><span class="line">import &#x27;tinymce/themes/silver/theme&#x27;;</span><br><span class="line">import &#x27;tinymce/icons/default/icons&#x27;;</span><br><span class="line">import &#x27;tinymce/models/dom/model&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/advlist&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/autolink&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/autosave&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/code&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/directionality&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/fullscreen&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/insertdatetime&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/link&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/anchor&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/lists&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/media&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/nonbreaking&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/pagebreak&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/preview&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/searchreplace&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/table&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/visualblocks&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/visualchars&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/wordcount&#x27;;</span><br><span class="line">import &#x27;tinymce/plugins/image&#x27;;</span><br><span class="line">//Vue 组件定义</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;&#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    value: String,</span><br><span class="line">  &#125;,</span><br><span class="line">  //组件内部数据</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      editor: null,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  //属性监控</span><br><span class="line">  watch: &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">      handler() &#123;</span><br><span class="line">        this.setValue(this.value);</span><br><span class="line">      &#125;,</span><br><span class="line">      immediate: true,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  //组件挂载时的初始化</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    tinymce</span><br><span class="line">      .init(&#123;</span><br><span class="line">        target: this.$refs.textarea,</span><br><span class="line">        ui_mode: &#x27;split&#x27;,</span><br><span class="line">        content_css: &#x27;/tinymce/skins/ui/oxide/content.css&#x27;,</span><br><span class="line">        language_url: &#x27;/tinymce/langs/zh_CN.js&#x27;,</span><br><span class="line">        language: &#x27;zh_CN&#x27;,</span><br><span class="line">        plugins:</span><br><span class="line">          &#x27;lists link anchor code wordcount image table visualchars visualblocks searchreplace preview pagebreak nonbreaking media insertdatetime fullscreen directionality autosave autolink advlist&#x27;,</span><br><span class="line">        toolbar: [</span><br><span class="line">          &#x27;undo redo removeformat | bold italic underline strikethrough superscript subscript backcolor forecolor | numlist bullist | blocks | searchreplace fullscreen&#x27;,</span><br><span class="line">          &#x27;fontfamily fontsize fontsizeselect fontsizeinput | alignleft aligncenter alignright alignjustify lineheight outdent indent | link unlink image media | preview code&#x27;,</span><br><span class="line">        ],</span><br><span class="line">        font_size_formats:</span><br><span class="line">          &#x27;9px 10px 11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 36px 42px 48px 72px&#x27;,</span><br><span class="line">        font_size_input_default_unit: &#x27;px&#x27;,</span><br><span class="line">        images_upload_handler: (blobInfo, progress) =&gt; &#123;</span><br><span class="line">          return this.uploadImage(blobInfo, progress);</span><br><span class="line">        &#125;,</span><br><span class="line">        height: 500,</span><br><span class="line">        promotion: false,</span><br><span class="line">      &#125;)</span><br><span class="line">      .then(([editor]) =&gt; &#123;</span><br><span class="line">        this.editor = editor;</span><br><span class="line">        this.setValue(this.value);</span><br><span class="line">        editor.on(&#x27;change keyup undo redo&#x27;, () =&gt; &#123;</span><br><span class="line">          this.$emit(&#x27;input&#x27;, editor.getContent());</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  //组件销毁</span><br><span class="line">  beforeDestroy() &#123;</span><br><span class="line">    this.editor?.destroy();</span><br><span class="line">  &#125;,</span><br><span class="line">  //方法</span><br><span class="line">  methods: &#123;</span><br><span class="line">  //setValue：设置编辑器内容，如果新值和当前值不同，则更新。</span><br><span class="line">    setValue(val) &#123;</span><br><span class="line">      const oldValue = this.editor?.getContent();	</span><br><span class="line">      if (typeof val === &#x27;string&#x27; &amp;&amp; val !== oldValue) &#123;</span><br><span class="line">        this.editor?.setContent(val);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //图片上传</span><br><span class="line">    uploadImage(blobInfo, progress) &#123;</span><br><span class="line">      return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">      //创建请求</span><br><span class="line">        const xhr = new XMLHttpRequest();</span><br><span class="line">        xhr.withCredentials = false;</span><br><span class="line">        xhr.open(&#x27;POST&#x27;, &#x27;/upload&#x27;);</span><br><span class="line">		//上传进度回调</span><br><span class="line">        xhr.upload.onprogress = (e) =&gt; &#123;</span><br><span class="line">          progress((e.loaded / e.total) * 100);</span><br><span class="line">        &#125;;</span><br><span class="line">		//上传完成回调</span><br><span class="line">        xhr.onload = () =&gt; &#123;</span><br><span class="line">          if (xhr.status === 403) &#123;</span><br><span class="line">            reject(&#123; message: &#x27;HTTP Error: &#x27; + xhr.status, remove: true &#125;);</span><br><span class="line">            return;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          if (xhr.status &lt; 200 || xhr.status &gt;= 300) &#123;</span><br><span class="line">            reject(&#x27;HTTP Error: &#x27; + xhr.status);</span><br><span class="line">            return;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          if (xhr.response.code !== 200) &#123;</span><br><span class="line">            reject(&#x27;Error: &#x27; + xhr.response.message);</span><br><span class="line">            return;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          resolve(xhr.response.data.list[0].file_url);</span><br><span class="line">        &#125;;</span><br><span class="line">		//错误处理</span><br><span class="line">        xhr.onerror = () =&gt; &#123;</span><br><span class="line">          reject(</span><br><span class="line">            &#x27;Image upload failed due to a XHR Transport error. Code: &#x27; +</span><br><span class="line">              xhr.status,</span><br><span class="line">          );</span><br><span class="line">        &#125;;</span><br><span class="line">        //设置请求头</span><br><span class="line">        xhr.setRequestHeader(&#x27;Authorization&#x27;, this.$cookie.get(&#x27;Admin-Token&#x27;));</span><br><span class="line">		//创建并发送表单数据</span><br><span class="line">        const formData = new FormData();</span><br><span class="line">        formData.append(&#x27;file&#x27;, blobInfo.blob(), blobInfo.filename());</span><br><span class="line">        formData.append(&#x27;module&#x27;, &#x27;public&#x27;);</span><br><span class="line">        formData.append(&#x27;file_type&#x27;, &#x27;image&#x27;);</span><br><span class="line"></span><br><span class="line">        xhr.responseType = &#x27;json&#x27;;</span><br><span class="line">        xhr.send(formData);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.tox-tinymce-aux &#123;</span><br><span class="line">  z-index: 10000 !important;</span><br><span class="line">&#125;</span><br><span class="line">.tox .tox-number-input .tox-input-wrapper &#123;</span><br><span class="line">  display: none !important;</span><br><span class="line">&#125;</span><br><span class="line">.tox-statusbar__branding &#123;</span><br><span class="line">  display: none !important;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用组件"><a href="#使用组件" class="headerlink" title="使用组件"></a>使用组件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;TinyEditor v-model=&quot;model.content&quot;&gt;&lt;/TinyEditor&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="在弹出框中使用组件"><a href="#在弹出框中使用组件" class="headerlink" title="在弹出框中使用组件"></a>在弹出框中使用组件</h2><p>在弹窗框使用此组件时，为避免出现某些意外问题，需要在弹出框隐藏时销毁此组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;TinyEditor v-if=&quot;dialogVisible&quot; v-model=&quot;model.content&quot;&gt;&lt;/TinyEditor&gt;</span><br></pre></td></tr></table></figure>
+
+<p>问题</p>
+<p><strong>引用组件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;TinyEditor v-model=&quot;form.context&quot; placeholder=&quot;请输入备注&quot;  v-if=&quot;open&quot; :key=&quot;form.id&quot; :mini-height=&quot;900&quot; /&gt;</span><br><span class="line">注：  v-if=&quot;open&quot; :key=&quot;form.id&quot; 显示多个得关闭和key只能看到一个富文本内容其余得刷新问题</span><br><span class="line">import TinyEditor from &quot;@/components/TinyEditor&quot;;</span><br><span class="line">components : &#123;TinyEditor&#125;,</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">殊荣</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/">http://example.com/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">热衷嗎</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/10/%E5%9F%BA%E7%A1%80/" title="基础"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">基础</div></div></a></div><div class="next-post pull-right"><a href="/2025/04/10/%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/" title=""><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">殊荣</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D-content-%E6%A0%B7%E5%BC%8F%E5%88%B0-public-%E7%9B%AE%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">拷贝 content 样式到 public 目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">下载中文翻译文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%BB%84%E4%BB%B6%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">创建组件文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E7%BB%84%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">编写组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5tinymce%E4%BE%9D%E8%B5%96"><span class="toc-number">6.1.</span> <span class="toc-text">导入tinymce依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BE%E7%BD%AEtextarea%E5%85%83%E7%B4%A0%E7%94%A8%E6%9D%A5%E5%88%9D%E5%A7%8B%E5%8C%96tinymce"><span class="toc-number">6.2.</span> <span class="toc-text">放置textarea元素用来初始化tinymce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%8C%82%E8%BD%BD%E6%97%B6%E5%88%9D%E5%A7%8B%E5%8C%96tinymce"><span class="toc-number">6.3.</span> <span class="toc-text">组件挂载时初始化tinymce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE"><span class="toc-number">6.4.</span> <span class="toc-text">自定义配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-number">6.5.</span> <span class="toc-text">双向数据绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E7%BA%A7%E9%97%AE%E9%A2%98"><span class="toc-number">6.6.</span> <span class="toc-text">层级问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%AD%97%E5%8F%B7%E8%BE%93%E5%85%A5%E6%A1%86"><span class="toc-number">6.7.</span> <span class="toc-text">隐藏字号输入框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TinyMCE%E5%93%81%E7%89%8Clogo"><span class="toc-number">6.8.</span> <span class="toc-text">TinyMCE品牌logo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BB%84%E4%BB%B6%E9%94%80%E6%AF%81%E6%97%B6%EF%BC%8C%E9%94%80%E6%AF%81%E7%BC%96%E8%BE%91%E5%99%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">6.9.</span> <span class="toc-text">在组件销毁时，销毁编辑器实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%BB%84%E4%BB%B6%E4%BB%A3%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text">完整组件代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">使用组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E5%BC%B9%E5%87%BA%E6%A1%86%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">在弹出框中使用组件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%9F%BA%E7%A1%80/" title="基础"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基础"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%9F%BA%E7%A1%80/" title="基础">基础</a><time datetime="2025-04-10T07:01:42.960Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/" title="在vue2使用TinyMCE富文本编辑器简介"><img src="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在vue2使用TinyMCE富文本编辑器简介"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/" title="在vue2使用TinyMCE富文本编辑器简介">在vue2使用TinyMCE富文本编辑器简介</a><time datetime="2025-04-10T07:01:42.950Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2025/04/10/%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/" title="无题">无题</a><time datetime="2025-04-10T07:01:42.950Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/linux/" title="linux"><img src="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linux"/></a><div class="content"><a class="title" href="/2025/04/10/linux/" title="linux">linux</a><time datetime="2025-04-10T07:01:42.930Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/" title="无题">无题</a><time datetime="2025-04-10T07:01:42.920Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 殊荣</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

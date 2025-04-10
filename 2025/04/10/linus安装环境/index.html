@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>linux安装环境 | 热衷嗎</title><meta name="author" content="殊荣"><meta name="copyright" content="殊荣"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.1 查看服务器系统版本以及内核版本cat &#x2F;etc&#x2F;redhat-release-- CentOS Linux release 7.9.2009 (Core)  1.2 查看服务器内核版本uname -r-- 3.10.0-1160.119.1.el7.x86_64  1.3 安装依赖包yum install -y yum-utils device-mapper-persistent-data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux安装环境">
+<meta property="og:url" content="http://example.com/2025/04/10/linus%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="热衷嗎">
+<meta property="og:description" content="1.1 查看服务器系统版本以及内核版本cat &#x2F;etc&#x2F;redhat-release-- CentOS Linux release 7.9.2009 (Core)  1.2 查看服务器内核版本uname -r-- 3.10.0-1160.119.1.el7.x86_64  1.3 安装依赖包yum install -y yum-utils device-mapper-persistent-data">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2025-04-10T06:36:44.050Z">
+<meta property="article:modified_time" content="2025-04-10T06:40:36.000Z">
+<meta property="article:author" content="殊荣">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/04/10/linus%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'linux安装环境',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-10 14:40:36'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="热衷嗎"><span class="site-name">热衷嗎</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">linux安装环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-10T06:36:44.050Z" title="发表于 2025-04-10 14:36:44">2025-04-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-10T06:40:36.000Z" title="更新于 2025-04-10 14:40:36">2025-04-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="linux安装环境"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="1-1-查看服务器系统版本以及内核版本"><a href="#1-1-查看服务器系统版本以及内核版本" class="headerlink" title="1.1 查看服务器系统版本以及内核版本"></a>1.1 查看服务器系统版本以及内核版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br><span class="line">-- CentOS Linux release 7.9.2009 (Core)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-查看服务器内核版本"><a href="#1-2-查看服务器内核版本" class="headerlink" title="1.2 查看服务器内核版本"></a>1.2 查看服务器内核版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -r</span><br><span class="line">-- 3.10.0-1160.119.1.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-安装依赖包"><a href="#1-3-安装依赖包" class="headerlink" title="1.3 安装依赖包"></a>1.3 安装依赖包</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-设置阿里云docker-ce镜像源"><a href="#1-4-设置阿里云docker-ce镜像源" class="headerlink" title="1.4 设置阿里云docker-ce镜像源"></a>1.4 设置阿里云docker-ce镜像源</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-docker-ce安装"><a href="#2-2-docker-ce安装" class="headerlink" title="2.2 docker-ce安装"></a>2.2 docker-ce安装</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y docker-ce</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-启动docker并设置开机自启"><a href="#2-3-启动docker并设置开机自启" class="headerlink" title="2.3 启动docker并设置开机自启"></a>2.3 启动docker并设置开机自启</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#启动docker命令</span><br><span class="line">systemctl start docker</span><br><span class="line">#设置开机自启命令</span><br><span class="line">systemctl enable docker</span><br><span class="line">#查看docker版本命令</span><br><span class="line">docker version</span><br></pre></td></tr></table></figure>
+
+<p>2.4 配置阿里云镜像加速器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建docker配置文件目录</span><br><span class="line"></span><br><span class="line">mkdir -p /etc/docker </span><br><span class="line"></span><br><span class="line">#添加配置内容</span><br><span class="line"></span><br><span class="line">tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line"></span><br><span class="line"> &#123;</span><br><span class="line"></span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line"></span><br><span class="line">https://bukxjsxh.mirror.aliyuncs.com/</span><br><span class="line">    &quot;https://docker.1panelproxy.com&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;https://2m11665s.mirror.aliyuncs.com&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;https://registry.docker-cn.com&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;https://dockerhub.azk8s.cn&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;https://docker.mirrors.ustc.edu.cn&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;http://hub-mirror.c.163.com&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;https://k8s.gcr.io&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;https://github-releases.githubusercontent.com&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;https://vsxcs7sq.mirror.aliyuncs.com&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;https://ustc-edu-cn.mirror.aliyuncs.com&quot;]</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#重启docker</span><br><span class="line"></span><br><span class="line">systemctl restart docker</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>拉取mysql镜像</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行脚本</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DB_HOME=/home/addone/mysql</span><br><span class="line">DB_CONF_PATH=$DB_HOME/conf/my.cnf:/etc/mysql/my.cnf</span><br><span class="line">DB_LOG_PATH=$DB_HOME/logs:/var/log/mysql</span><br><span class="line">DB_DATA_PATH=$DB_HOME/data:/var/lib/mysql</span><br><span class="line">docker run  -p 3306:3306 --restart=always --name mysql -v $DB_LOG_PATH -v $DB_CONF_PATH -v $DB_DATA_PATH -e MYSQL_ROOT_PASSWORD=&#x27;Addone&amp;+1&#x27; -d mysql:5.7</span><br></pre></td></tr></table></figure>
+
+<p><strong>拉取nginx镜像</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull nginx:latest</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NX_HOME=/home/addone/nginx</span><br><span class="line">NX_LOG_PATH=$NX_HOME/logs:/var/log/nginx</span><br><span class="line">NX_CONF_PATH=$NX_HOME/nginx.conf:/etc/nginx/nginx.conf</span><br><span class="line">NX_HTML_PATH=$NX_HOME/www:/usr/share/nginx/html</span><br><span class="line"></span><br><span class="line">name=`docker ps -f name=^/nginx$ | awk &#x27;/[e]nergy/&#123;print $2&#125;&#x27;`</span><br><span class="line">#exist=`docker inspect --format &#x27;&#123;&#123;.State.Running&#125;&#125;&#x27; exam`</span><br><span class="line">if [ &quot;name&quot;x != &quot;&quot;x ]; then</span><br><span class="line">	docker stop nginx</span><br><span class="line">	docker rm nginx</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">docker run  -p 80:80 -p 443:443 --name nginx -v $NX_LOG_PATH -v $NX_CONF_PATH -v $NX_HTML_PATH -d nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>拉取nacox镜像</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull nacos/nacos-server</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行脚本</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NACOS_HOME=/home/nacos</span><br><span class="line">NACOS_LOG_PATH=$NACOS_HOME/logs:/home/nacos/logs</span><br><span class="line">NACOS_CONF_PATH=$NACOS_HOME/conf:/home/nacos/conf</span><br><span class="line">NACOS_DATA_PATH=$NACOS_HOME/data:/home/nacos/data </span><br><span class="line">name=`docker ps -f name=^/nacos | awk &#x27;/[e]nergy/&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ &quot;name&quot;x != &quot;&quot;x ]; then</span><br><span class="line">	docker stop nacos</span><br><span class="line">	docker rm nacos</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">#docker run  -p 8848:8848 \</span><br><span class="line">#-p 9848:9848 \</span><br><span class="line">#-p 9849:9849 \</span><br><span class="line">#--name nacos \</span><br><span class="line">#--env MODE=standalone \</span><br><span class="line">#--env SPRING_DATASOURCE_PLATFORM=mysql \</span><br><span class="line">#--env MYSQL_SERVICE_HOST=81.69.253.26 \</span><br><span class="line">#--env MYSQL_SERVICE_PORT=3306 \</span><br><span class="line">#--env MYSQL_SERVICE_DB_NAME=nacos_config \</span><br><span class="line">#--env MYSQL_SERVICE_USER=nacos \</span><br><span class="line">#--env MYSQL_SERVICE_PASSWORD=&#x27;Addone&amp;1+1+1&#x27; \</span><br><span class="line">#-v $NACOS_CONF_PATH -v $NACOS_DATA_PATH -v $NACOS_LOG_PATH -d nacos/nacos-server</span><br><span class="line">#v2.2.3</span><br><span class="line">docker run --name nacos \</span><br><span class="line">-e MODE=standalone \</span><br><span class="line">-e NACOS_AUTH_ENABLE=true \</span><br><span class="line">-v /home/nacos/conf/application.properties:/home/nacos/conf/application.properties \</span><br><span class="line">-v /home/nacos/logs:/home/nacos/logs \</span><br><span class="line">-p 8848:8848 -d \</span><br><span class="line">-p 9848:9848 \</span><br><span class="line">--restart always nacos/nacos-server:v2.2.3</span><br></pre></td></tr></table></figure>
+
+<p><strong>拉取minio镜像</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull minio/minio</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MINIO_HOME=/home/pointsMall/minio</span><br><span class="line">MINIO_DATA_PATH=$MINIO_HOME/data:/data</span><br><span class="line">MINIO_CONF_PATH=$MINIO_HOME/conf:/root</span><br><span class="line"></span><br><span class="line">name=`docker ps -f name=^/minio$ | awk &#x27;/[e]nergy/&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ &quot;name&quot;x != &quot;&quot;x ]; then</span><br><span class="line">	docker stop minio</span><br><span class="line">	docker rm minio</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">docker run -d -p 9000:9000 -p 9001:9001 --name minio \</span><br><span class="line">-v $MINIO_DATA_PATH \</span><br><span class="line">-v $MINIO_CONF_PATH \</span><br><span class="line">-e &quot;MINIO_ROOT_USER=addone&quot; -e &quot;MINIO_ROOT_PASSWORD=Addone&amp;+1&quot; -e &quot;MINIO_BROWSER=on&quot;  \</span><br><span class="line">quay.io/minio/minio server /data --console-address &quot;:9001&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>安装rocketMQ</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull apache/rocketmq</span><br></pre></td></tr></table></figure>
+
+<p><strong>创namesrv服务  创建 namesrv 数据存储路径</strong></p>
+<p>创namesrv服务  创建 namesrv 数据存储路径<br>创建挂载目录(linux)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /usr/local/rocketmq/data/namesrv/logs /usr/local/rocketmq/data/namesrv/store</span><br></pre></td></tr></table></figure>
+
+<p><strong>构建namesrv容器</strong><br>代码：直接将mq挂载到创建的目录，我的是win直接替换成想要的路径，没有文件夹默认创建</p>
+<p>注意：windows 换行是 “^”,linux 是 “&quot;，使用的时候按照系统替换</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d ^</span><br><span class="line">--restart=always ^</span><br><span class="line">--name rmqnamesrv ^</span><br><span class="line">--privileged=true ^</span><br><span class="line">-p 9876:9876 ^</span><br><span class="line">-v /f/mount/rocketmq/data/namesrv/logs:/root/logs ^</span><br><span class="line">-v /f/mount/rocketmq/data/namesrv/store:/root/store ^</span><br><span class="line">-e &quot;MAX_POSSIBLE_HEAP=100000000&quot; ^</span><br><span class="line">-e &quot;JAVA_OPT_EXT=-Xms512M -Xmx512M -Xmn128m&quot; ^</span><br><span class="line">apache/rocketmq ^</span><br><span class="line">sh mqnamesrv</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建broker节点</strong><br> 创建broker数据数据卷<br>创建数据卷目录，便 于进 行 数据挂载（目的同上）</p>
+<p> 代码：(linux) </p>
+<pre><code>mkdir -p /usr/local/rocketmq/data/broker/logs /usr/local/rocketmq/data/broker/store /usr/local/rocketmq/conf
+</code></pre>
+<p>创建配置文件<br>代码：Linux，</p>
+<p>vi &#x2F;usr&#x2F;local&#x2F;rocketmq&#x2F;conf&#x2F;broker.conf<br>windows 直接去目录下新建文件broker.conf</p>
+<p>将如下代码写入新建的文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brokerClusterName = DefaultCluster</span><br><span class="line"></span><br><span class="line">brokerName = broker-a</span><br><span class="line"></span><br><span class="line">brokerId = 0</span><br><span class="line"></span><br><span class="line">deleteWhen = 04</span><br><span class="line"></span><br><span class="line">fileReservedTime = 48</span><br><span class="line"></span><br><span class="line">brokerRole = ASYNC_MASTER</span><br><span class="line"></span><br><span class="line">flushDiskType = ASYNC_FLUSH</span><br><span class="line"></span><br><span class="line">brokerIP1 = 127.0.0.1</span><br><span class="line"></span><br><span class="line">diskMaxUsedSpaceRatio=95</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>linux :按Esc，：wq，保存退出，即可 </p>
+<p>安装seate</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull seataio/seata-server:1.4.1</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>批量启动命令</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose -f docker-compose.yml up -d</span><br><span class="line">重启单个</span><br><span class="line">docker-compose restart ruoyi-system</span><br><span class="line"></span><br><span class="line">启动单个</span><br><span class="line">停止删除之前镜像</span><br><span class="line">docker-compose stop ruoyi-system</span><br><span class="line">docker-compose rm -f ruoyi-system</span><br><span class="line">重建镜像</span><br><span class="line">docker-compose build ruoyi-system</span><br><span class="line">启动服务</span><br><span class="line">docker-compose up -d --no-deps --build ruoyi-system</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>server</strong></p>
+<p>创建文件dockerfile</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 基础镜像</span><br><span class="line">FROM  openjdk:8-jre</span><br><span class="line"># author</span><br><span class="line">MAINTAINER qt</span><br><span class="line"></span><br><span class="line"># 挂载目录</span><br><span class="line">VOLUME /home/qt</span><br><span class="line"># 创建目录</span><br><span class="line">RUN mkdir -p /home/qt</span><br><span class="line"># 指定路径</span><br><span class="line">WORKDIR /home/qt</span><br><span class="line"># 复制jar文件到路径</span><br><span class="line">COPY ./ruoyi-admin.jar /home/qt/ruoyi-admin.jar</span><br><span class="line"># 启动网关服务</span><br><span class="line">ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;ruoyi-admin.jar&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>创建脚本 run.sh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker stop qt</span><br><span class="line"></span><br><span class="line">docker rm qt</span><br><span class="line">docker rmi qt</span><br><span class="line"></span><br><span class="line">docker build -t qt .</span><br><span class="line"></span><br><span class="line">docker run -d -p 8848:8848 -v /home/addone/service/logs:/home/ruoyi/logs -v /home/addone/service/upload:/home/ruoyi/uploadPath/upload --name qt qt</span><br></pre></td></tr></table></figure>
+
+<p>脚本start.sh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">RESOURCE_NAME=ruoyi-admin.jar</span><br><span class="line"> </span><br><span class="line">tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ $&#123;tpid&#125; ]; then</span><br><span class="line">echo &#x27;Stop Process...&#x27;</span><br><span class="line">kill -15 $tpid</span><br><span class="line">fi</span><br><span class="line">sleep 4</span><br><span class="line">tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ $&#123;tpid&#125; ]; then</span><br><span class="line">echo &#x27;Kill Process!&#x27;</span><br><span class="line">kill -9 $tpid</span><br><span class="line">else</span><br><span class="line">echo &#x27;Stop Success!&#x27;</span><br><span class="line">fi</span><br><span class="line"> </span><br><span class="line">tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ $&#123;tpid&#125; ]; then</span><br><span class="line">    echo &#x27;App is running.&#x27;</span><br><span class="line">else</span><br><span class="line">    echo &#x27;App is NOT running.&#x27;</span><br><span class="line">fi</span><br><span class="line"> </span><br><span class="line">rm -f tpid</span><br><span class="line">nohup java -jar -Xms500m -Xmx500m -Xloggc:/dev/shm/gc-myapp.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails  $RESOURCE_NAME &amp;</span><br><span class="line">echo $! &gt; tpid</span><br><span class="line">echo Start Success!</span><br><span class="line">tail -f nohup.out</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server</span><br><span class="line">&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name chaoshan.974613065.xyz;</span><br><span class="line">    index index.php index.html index.htm default.php default.htm default.html;</span><br><span class="line">    root /www/wwwroot/chaoshan.974613065.xyz;</span><br><span class="line">    #CERT-APPLY-CHECK--START</span><br><span class="line">    # 用于SSL证书申请时的文件验证相关配置 -- 请勿删除</span><br><span class="line">    include /www/server/panel/vhost/nginx/well-known/chaoshan.974613065.xyz.conf;</span><br><span class="line">    #CERT-APPLY-CHECK--END</span><br><span class="line"></span><br><span class="line">    #SSL-START SSL相关配置，请勿删除或修改下一行带注释的404规则</span><br><span class="line">    #error_page 404/404.html;</span><br><span class="line">    #SSL-END</span><br><span class="line"></span><br><span class="line">    #ERROR-PAGE-START  错误页配置，可以注释、删除或修改</span><br><span class="line">    error_page 404 /404.html;</span><br><span class="line">    #error_page 502 /502.html;</span><br><span class="line">    #ERROR-PAGE-END</span><br><span class="line"></span><br><span class="line">    #PHP-INFO-START  PHP引用配置，可以注释或修改</span><br><span class="line">    include enable-php-80.conf;</span><br><span class="line">    #PHP-INFO-END</span><br><span class="line"></span><br><span class="line">    #REWRITE-START URL重写规则引用,修改后将导致面板设置的伪静态规则失效</span><br><span class="line">    include /www/server/panel/vhost/rewrite/chaoshan.974613065.xyz.conf;</span><br><span class="line">    #REWRITE-END</span><br><span class="line"></span><br><span class="line">    #禁止访问的文件或目录</span><br><span class="line">    location ~ ^/(\.user.ini|\.htaccess|\.git|\.env|\.svn|\.project|LICENSE|README.md)</span><br><span class="line">    &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #一键申请SSL证书验证目录相关设置</span><br><span class="line">    location ~ \.well-known&#123;</span><br><span class="line">        allow all;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #禁止在证书验证目录放入敏感文件</span><br><span class="line">    if ( $uri ~ &quot;^/\.well-known/.*\.(php|jsp|py|js|css|lua|ts|go|zip|tar\.gz|rar|7z|sql|bak)$&quot; ) &#123;</span><br><span class="line">        return 403;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">    &#123;</span><br><span class="line">        expires      30d;</span><br><span class="line">        error_log /dev/null;</span><br><span class="line">        access_log /dev/null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">  try_files $uri $uri/ /index.html;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    location ~ .*\.(js|css)?$</span><br><span class="line">    &#123;</span><br><span class="line">        expires      12h;</span><br><span class="line">        error_log /dev/null;</span><br><span class="line">        access_log /dev/null;</span><br><span class="line">    &#125;</span><br><span class="line">    access_log  /www/wwwlogs/chaoshan.974613065.xyz.log;</span><br><span class="line">    error_log  /www/wwwlogs/chaoshan.974613065.xyz.error.log;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用了证书后，https后得用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#网关路径</span><br><span class="line">       location /minImg/ &#123;</span><br><span class="line">	     proxy_pass http://192.168.13.2:9000/;</span><br><span class="line">       		proxy_set_header Host $http_host;</span><br><span class="line">		proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">		proxy_set_header REMOTE-HOST $remote_addr;</span><br><span class="line">		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">           </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        listen       443 ssl;</span><br><span class="line">        server_name  www.yiqimiaoqt.com yiqimiaoqt.com;</span><br><span class="line">     	# 开启解压缩静态文件</span><br><span class="line">		gzip_static on;</span><br><span class="line">		ssl_certificate /usr/share/nginx/html/cret/www.yiqimiaoqt.com.pem; #ssl证书存放路径</span><br><span class="line">		ssl_certificate_key /usr/share/nginx/html/cret/www.yiqimiaoqt.com.key; #ssl证书存放路径</span><br><span class="line">		ssl_session_timeout 5m;</span><br><span class="line">		ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</span><br><span class="line">		ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">		ssl_prefer_server_ciphers on;</span><br><span class="line">		proxy_connect_timeout 600;</span><br><span class="line">    		proxy_read_timeout 600;</span><br><span class="line">    		proxy_send_timeout 600;</span><br><span class="line"></span><br><span class="line">		#小程序静态文件使用包</span><br><span class="line">        	location /html/images/ &#123;</span><br><span class="line">            root   /usr/share/nginx;</span><br><span class="line">        &#125;</span><br><span class="line">      location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html/web;</span><br><span class="line">            try_files $uri $uri/ /index.html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        location /QT_MANAGE &#123; </span><br><span class="line">           alias /usr/share/nginx/html/admin/;</span><br><span class="line">               try_files $uri $uri/ /QT_MANAGE/index.html;</span><br><span class="line">               index  index.html index.htm;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">		#网关路径</span><br><span class="line">        location /minImg/ &#123;</span><br><span class="line">		     proxy_pass http://172.31.240.46:9000/;</span><br><span class="line">        		proxy_set_header Host $http_host;</span><br><span class="line">			proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">			proxy_set_header REMOTE-HOST $remote_addr;</span><br><span class="line">			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">      location /prod-api/ &#123;</span><br><span class="line">		     proxy_pass http://172.31.240.46:8848/;</span><br><span class="line">		     proxy_set_header Host $http_host;</span><br><span class="line">			proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">			proxy_set_header REMOTE-HOST $remote_addr;</span><br><span class="line">			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        &#125;  </span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">殊荣</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/04/10/linus%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/">http://example.com/2025/04/10/linus%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">热衷嗎</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/10/docker/" title="Docker命令"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Docker命令</div></div></a></div><div class="next-post pull-right"><a href="/2024/08/28/mqtt/" title=""><img class="cover" src="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">殊荣</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E4%BB%A5%E5%8F%8A%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-number">1.</span> <span class="toc-text">1.1 查看服务器系统版本以及内核版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-number">2.</span> <span class="toc-text">1.2 查看服务器内核版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-number">3.</span> <span class="toc-text">1.3 安装依赖包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E8%AE%BE%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91docker-ce%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">1.4 设置阿里云docker-ce镜像源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-docker-ce%E5%AE%89%E8%A3%85"><span class="toc-number">5.</span> <span class="toc-text">2.2 docker-ce安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E5%90%AF%E5%8A%A8docker%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-number">6.</span> <span class="toc-text">2.3 启动docker并设置开机自启</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%9F%BA%E7%A1%80/" title="基础"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基础"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%9F%BA%E7%A1%80/" title="基础">基础</a><time datetime="2025-04-10T07:01:42.960Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/" title="在vue2使用TinyMCE富文本编辑器简介"><img src="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在vue2使用TinyMCE富文本编辑器简介"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/" title="在vue2使用TinyMCE富文本编辑器简介">在vue2使用TinyMCE富文本编辑器简介</a><time datetime="2025-04-10T07:01:42.950Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2025/04/10/%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/" title="无题">无题</a><time datetime="2025-04-10T07:01:42.950Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/linux/" title="linux"><img src="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linux"/></a><div class="content"><a class="title" href="/2025/04/10/linux/" title="linux">linux</a><time datetime="2025-04-10T07:01:42.930Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/" title="无题">无题</a><time datetime="2025-04-10T07:01:42.920Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 殊荣</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

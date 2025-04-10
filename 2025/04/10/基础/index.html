@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>基础 | 热衷嗎</title><meta name="author" content="殊荣"><meta name="copyright" content="殊荣"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基础知识一、MAP：1.Map概念简介（1）Map的定义：Map类是Java集合框架中的一部分，用于存储键值对（key-value pairs）。每个键（key）对应一个值（value），键是唯一的，但值可以重复。常见的Map实现类包括HashMap、LinkedHashMap、TreeMap。  （2）Map.Entry&lt;K, V&gt;的说明对于Map这种数据结构而言，其底层可以简单的理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础">
+<meta property="og:url" content="http://example.com/2025/04/10/%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="热衷嗎">
+<meta property="og:description" content="基础知识一、MAP：1.Map概念简介（1）Map的定义：Map类是Java集合框架中的一部分，用于存储键值对（key-value pairs）。每个键（key）对应一个值（value），键是唯一的，但值可以重复。常见的Map实现类包括HashMap、LinkedHashMap、TreeMap。  （2）Map.Entry&lt;K, V&gt;的说明对于Map这种数据结构而言，其底层可以简单的理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2025-04-10T07:01:42.960Z">
+<meta property="article:modified_time" content="2025-04-10T07:03:44.000Z">
+<meta property="article:author" content="殊荣">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/04/10/%E5%9F%BA%E7%A1%80/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-10 15:03:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="热衷嗎"><span class="site-name">热衷嗎</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-10T07:01:42.960Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-10T07:03:44.000Z" title="更新于 2025-04-10 15:03:44">2025-04-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h3 id="一、MAP："><a href="#一、MAP：" class="headerlink" title="一、MAP："></a>一、MAP：</h3><h4 id="1-Map概念简介"><a href="#1-Map概念简介" class="headerlink" title="1.Map概念简介"></a>1.Map概念简介</h4><h5 id="（1）Map的定义："><a href="#（1）Map的定义：" class="headerlink" title="（1）Map的定义："></a>（1）Map的定义：</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Map类是Java集合框架中的一部分，用于存储键值对（key-value pairs）。每个键（key）对应一个值（value），键是唯一的，但值可以重复。常见的Map实现类包括HashMap、LinkedHashMap、TreeMap。</span><br></pre></td></tr></table></figure>
+
+<h5 id="（2）Map-Entry的说明"><a href="#（2）Map-Entry的说明" class="headerlink" title="（2）Map.Entry&lt;K, V&gt;的说明"></a>（2）Map.Entry&lt;K, V&gt;的说明</h5><p>对于Map这种数据结构而言，其底层可以简单的理解为是由一个个<code>节点</code>进行构成的的树，而Map.Entry&lt;K, V&gt;就是其每一个节点</p>
+<p>对于Map.Entry&lt;K, V&gt;来说，其是Map内部实现的用来存放&lt;key, value&gt;键值对映射关系的内部类，该内部类中主要提供了&lt;key, value&gt;的获取，value的设置以及Key的比较方式：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>K getKey()</strong></td>
+<td align="center">返回 entry 中的 key</td>
+</tr>
+<tr>
+<td align="center"><strong>V getValue()</strong></td>
+<td align="center">返回 entry 中的 value</td>
+</tr>
+<tr>
+<td align="center"><strong>V setValue(V value)</strong></td>
+<td align="center">将键值对中的value替换为指定value</td>
+</tr>
+</tbody></table>
+<h5 id="（3）Map类在Java集合类中的关系"><a href="#（3）Map类在Java集合类中的关系" class="headerlink" title="（3）Map类在Java集合类中的关系"></a>（3）Map类在Java集合类中的关系</h5><p><img src="https://gitee.com/wengkang/blogimage/raw/master/images/map.png">从图中我们可以看出，Map类不在实现Collection接口，而是实现Map自身接口。 </p>
+<h4 id="2-Map接口中常用API"><a href="#2-Map接口中常用API" class="headerlink" title="2.Map接口中常用API"></a>2.Map接口中常用API</h4><p>  <code>Map</code>接口提供了一些基本的方法，用于操作键值对。以下是<code>Map</code>接口的主要方法 ：</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>V get(Object key)</strong></td>
+<td align="left">返回 key 对应的 value</td>
+</tr>
+<tr>
+<td align="left"><strong>V getOrDefault(Object key, V defaultValue)</strong></td>
+<td align="left">返回 key 对应的 value，key 不存在，返回默认值</td>
+</tr>
+<tr>
+<td align="left"><strong>V put(K key, V value)</strong></td>
+<td align="left">设置 key 对应的 value</td>
+</tr>
+<tr>
+<td align="left"><strong>V remove(Object key)</strong></td>
+<td align="left">删除 key 对应的映射关系</td>
+</tr>
+<tr>
+<td align="left"><strong>Set<K> keySet()</strong></td>
+<td align="left">返回所有 key 的不重复集合</td>
+</tr>
+<tr>
+<td align="left"><strong>Collection<V> values()</strong></td>
+<td align="left">返回所有 value 的可重复集合</td>
+</tr>
+<tr>
+<td align="left"><strong>Set&lt;Map.Entry&lt;K, V&gt;&gt; entrySet()</strong></td>
+<td align="left">返回所有的 key-value 映射关系</td>
+</tr>
+<tr>
+<td align="left"><strong>boolean containsKey(Object key)</strong></td>
+<td align="left">判断是否包含 key</td>
+</tr>
+<tr>
+<td align="left"><strong>boolean containsValue(Object value)</strong></td>
+<td align="left">判断是否包含 value</td>
+</tr>
+</tbody></table>
+<h4 id="3-Map的常见实现类"><a href="#3-Map的常见实现类" class="headerlink" title="**3.**Map的常见实现类"></a>**3.**Map的常见实现类</h4><p> <strong>在Java汇总，常见的Map实现类包括HashMap、LinkedHashMap、TreeMap。</strong> </p>
+<h5 id="（1）HashMap"><a href="#（1）HashMap" class="headerlink" title="（1）HashMap"></a>（1）HashMap</h5><p><code>HashMap</code><strong>是最常用的Map实现类，基于哈希表实现。它允许使用null键和null值，但不保证映射的顺序。其主要特点包括：</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">线程不安全：多个线程同时访问时需要手动同步。</span><br><span class="line">无序：不保证键值对的插入顺序。</span><br><span class="line">高效：大多数操作的时间复杂度为O(1)。</span><br></pre></td></tr></table></figure>
+
+<h5 id="（2）LinkedHashMap"><a href="#（2）LinkedHashMap" class="headerlink" title="（2）LinkedHashMap"></a>（2）LinkedHashMap</h5><p><strong>LinkedHashMap继承自HashMap，并且在内部使用双向链表维护键值对的插入顺序。因此LinkedHashMap是<code>有序</code>的Map实现类。其主要特点包括：</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">维护插入顺序或访问顺序。</span><br><span class="line">其他特性与HashMap相同。</span><br></pre></td></tr></table></figure>
+
+<h5 id="（3）TreeMap"><a href="#（3）TreeMap" class="headerlink" title="（3）TreeMap"></a>（3）TreeMap</h5><p><strong>TreeMap是基于<code>红黑树</code>实现的有序Map，它的键按照<code>自然顺序或自定义比较器</code>的顺序排序。其主要特点包括：</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">保证键的排序顺序。</span><br><span class="line">其他特性与HashMap相似，但TreeMap的操作时间复杂度为O(log n)。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="流（stream）"><a href="#流（stream）" class="headerlink" title="流（stream）"></a>流（stream）</h2><p><code>filter</code></p>
+<ul>
+<li>通过 Lambda 表达式对流中的元素进行条件过滤。</li>
+<li>结果是一个新流，只包含满足条件的元素。</li>
+</ul>
+<p><code>map</code></p>
+<ul>
+<li><code>map</code> 用于将流中的元素进行转换。</li>
+<li>结果是一个新流，元素类型可以转换成另一种类型。</li>
+</ul>
+<p><code>distinct</code></p>
+<ul>
+<li>过滤掉流中重复的元素。</li>
+</ul>
+<p><code>sorted</code></p>
+<ul>
+<li>按照自然顺序对流中的元素进行排序，或者提供一个比较器进行自定义排序。</li>
+</ul>
+<p><code>limit</code></p>
+<ul>
+<li>返回流中的前 N 个元素。</li>
+</ul>
+<p><code>skip</code></p>
+<ul>
+<li>跳过流中的前 N 个元素，返回剩余的元素。</li>
+</ul>
+<p><code>collect</code></p>
+<ul>
+<li>通常配合 <code>Collectors</code> 工具类使用。</li>
+</ul>
+<p><code>forEach</code></p>
+<ul>
+<li>对每个元素进行操作，常用来输出元素或者处理数据。</li>
+</ul>
+<p><code>reduce</code></p>
+<ul>
+<li>可以对流中的元素进行累加、乘积、连接等操作。</li>
+</ul>
+<p><strong>anyMatch</strong>、<strong>allMatch</strong> 和 <strong>noneMatch</strong>：判断流中的元素是否满足某个条件。 </p>
+<ul>
+<li><code>anyMatch</code>：只要有一个元素满足条件返回 <code>true</code>。</li>
+<li><code>allMatch</code>：只有所有元素都满足条件才返回 <code>true</code>。</li>
+<li><code>noneMatch</code>：只有没有元素满足条件才返回 <code>true</code>。</li>
+</ul>
+<p><strong>findFirst</strong> 和 <strong>findAny</strong>：返回流中的第一个元素或者任意元素。 </p>
+<ul>
+<li><code>findFirst</code>：返回流中的第一个元素。</li>
+<li><code>findAny</code>：返回流中的任意一个元素，通常用于并行流。</li>
+</ul>
+<ol>
+<li><strong>count</strong>：统计流中元素的个数。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">殊荣</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/04/10/%E5%9F%BA%E7%A1%80/">http://example.com/2025/04/10/%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">热衷嗎</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/" title="在vue2使用TinyMCE富文本编辑器简介"><img class="cover" src="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">在vue2使用TinyMCE富文本编辑器简介</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">殊荣</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81MAP%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">一、MAP：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Map%E6%A6%82%E5%BF%B5%E7%AE%80%E4%BB%8B"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">1.Map概念简介</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%EF%BC%881%EF%BC%89Map%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">1.0.1.1.1.</span> <span class="toc-text">（1）Map的定义：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%EF%BC%882%EF%BC%89Map-Entry%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="toc-number">1.0.1.1.2.</span> <span class="toc-text">（2）Map.Entry&lt;K, V&gt;的说明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%EF%BC%883%EF%BC%89Map%E7%B1%BB%E5%9C%A8Java%E9%9B%86%E5%90%88%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.0.1.1.3.</span> <span class="toc-text">（3）Map类在Java集合类中的关系</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Map%E6%8E%A5%E5%8F%A3%E4%B8%AD%E5%B8%B8%E7%94%A8API"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">2.Map接口中常用API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Map%E7%9A%84%E5%B8%B8%E8%A7%81%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">**3.**Map的常见实现类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%EF%BC%881%EF%BC%89HashMap"><span class="toc-number">1.0.1.3.1.</span> <span class="toc-text">（1）HashMap</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%EF%BC%882%EF%BC%89LinkedHashMap"><span class="toc-number">1.0.1.3.2.</span> <span class="toc-text">（2）LinkedHashMap</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%EF%BC%883%EF%BC%89TreeMap"><span class="toc-number">1.0.1.3.3.</span> <span class="toc-text">（3）TreeMap</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%EF%BC%88stream%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">流（stream）</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%9F%BA%E7%A1%80/" title="基础"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基础"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%9F%BA%E7%A1%80/" title="基础">基础</a><time datetime="2025-04-10T07:01:42.960Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/" title="在vue2使用TinyMCE富文本编辑器简介"><img src="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在vue2使用TinyMCE富文本编辑器简介"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%AF%8C%E6%96%87%E6%9C%AC/" title="在vue2使用TinyMCE富文本编辑器简介">在vue2使用TinyMCE富文本编辑器简介</a><time datetime="2025-04-10T07:01:42.950Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2025/04/10/%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/" title="无题">无题</a><time datetime="2025-04-10T07:01:42.950Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/linux/" title="linux"><img src="https://gitee.com/wengkang/blogimage/raw/master/images/fm01.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linux"/></a><div class="content"><a class="title" href="/2025/04/10/linux/" title="linux">linux</a><time datetime="2025-04-10T07:01:42.930Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/10/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2025/04/10/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/" title="无题">无题</a><time datetime="2025-04-10T07:01:42.920Z" title="发表于 2025-04-10 15:01:42">2025-04-10</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 殊荣</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
